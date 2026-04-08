@@ -83,5 +83,11 @@ async function initDB() {
 }
 initDB();
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`API running on port ${PORT}`));
+// Export app for testing (supertest)
+module.exports = app;
+
+// Only start listening if run directly (not imported by tests)
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`API running on port ${PORT}`));
+}

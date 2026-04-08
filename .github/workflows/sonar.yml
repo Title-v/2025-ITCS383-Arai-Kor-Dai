@@ -1,20 +1,12 @@
-name: SonarCloud Scan
+# This workflow is replaced by ci.yml which includes build, test, and SonarCloud
+# Keeping for backwards compatibility - redirects to ci.yml
+name: SonarCloud Scan (Legacy)
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 jobs:
-  sonar:
+  note:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - run: echo "Use the CI workflow instead - it includes SonarCloud"
