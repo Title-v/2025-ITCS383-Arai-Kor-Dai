@@ -3,8 +3,6 @@ module.exports = {
   testMatch: ['**/__tests__/**/*.test.js'],
   collectCoverageFrom: [
     'routes/**/*.js',
-    'db.js',
-    'server.js',
     '!**/node_modules/**',
     '!**/__tests__/**',
   ],
