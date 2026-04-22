@@ -30,7 +30,7 @@ jobs:
       - name: Run tests with coverage
         working-directory: implementations/backend
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://dummy:dummy@localhost:5432/dummy' }}
         run: npm run test:ci
 
       - name: Upload coverage report
